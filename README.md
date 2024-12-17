@@ -71,13 +71,13 @@ Use a lock when interfacing otherwise.
   [`pysmb`](https://miketeo.net/blog/projects/pysmb) API, which only accepts
   file-like objects:
   ```python
-  from SMB.SMBConnection import SMBConnectSMBConnection
+  from smb.SMBConnection import SMBConnection
 
   smb = SMBConnection('guest', '', 'client', 'server')
   smb.connect("192.168.0.1")
 
   info = smb.getAttributes("Music", "The Clash/Rock the Casbah.mp3")
-  cursor = Cursor(bytearray(shared_file.file_size))
+  cursor = Cursor(bytearray(info.file_size))
   smb.retrieveFile("Music", "The Clash/Rock the Casbah.mp3", cursor)
 
   buffer = cursor.getvalue()
